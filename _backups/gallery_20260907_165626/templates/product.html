@@ -1,0 +1,39 @@
+{% extends 'base.html' %}{% block title %}{{ item.name }} | نئوگیم{% endblock %}{% block content %}
+<section class="page-head container" style="padding-bottom:10px;text-align:right">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <a href="{% url 'market' %}">مارکت</a> / <span>{{ item.name }}</span></div>
+</section>
+<div class="container product">
+  <div>
+    <div class="g-main">{{ item.icon }}</div>
+    <div class="g-thumbs"><button class="on">{{ item.icon }}</button><button>💠</button><button>⚔️</button></div>
+  </div>
+  <div class="p-info">
+    <span class="badge b-{{ item.rarity }}">⭐ {{ item.get_rarity_display }}</span>
+    <h1>{{ item.name }}</h1>
+    <div class="rate">★★★★★ <small>({{ reviews|length }} نظر) · {{ item.game.name }}</small></div>
+    <div class="seller"><span class="av">🥷</span><div><b>فروشگاه نئو</b><small>✓ فروشنده وریفای‌شده · ۹۸٪ رضایت</small></div></div>
+    <div style="display:flex;align-items:center;gap:16px;margin:18px 0">
+      <span class="p-price">${{ item.price|floatformat:2 }}</span>
+      {% if item.old_price %}<span class="old" style="font-size:1rem">${{ item.old_price|floatformat:2 }}</span><span class="badge b-ok">تخفیف ویژه</span>{% endif %}
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <form method="post" action="{% url 'cart_add' item.id %}?buy=1">{% csrf_token %}<button class="btn btn-primary">⚡ خرید فوری</button></form>
+      <form method="post" action="{% url 'cart_add' item.id %}">{% csrf_token %}<button class="btn btn-glass">🛒 افزودن به سبد</button></form>
+    </div>
+    <div class="meta-list">
+      <div>⚡ تحویل آنی — کمتر از ۵ دقیقه پس از پرداخت</div>
+      <div>🔐 پرداخت از طریق اسکرو امن</div>
+      <div>💠 گارانتی بازگشت وجه ۷ روزه</div>
+    </div>
+    {% if item.description %}<p style="color:var(--muted)">{{ item.description }}</p>{% endif %}
+  </div>
+</div>
+{% if reviews %}
+<div class="container"><h3 style="margin-bottom:16px">💬 نظرات</h3>
+  {% for rv in reviews %}<div class="review"><div class="stars">{% for i in '★★★★★'|slice:':5' %}★{% endfor %}</div><p style="color:var(--muted);margin:8px 0">{{ rv.text }}</p><b>{{ rv.user.username }}</b></div>{% endfor %}
+</div>{% endif %}
+{% if related %}
+<section class="section container"><div class="sec-head"><div><h2 class="sec-title">آیتم‌های <i>مرتبط</i></h2></div></div>
+  <div class="items-grid">{% for item in related %}{% include 'includes/item.html' %}{% endfor %}</div>
+</section>{% endif %}
+{% endblock %}

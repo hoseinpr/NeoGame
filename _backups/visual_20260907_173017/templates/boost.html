@@ -1,0 +1,29 @@
+{% extends 'base.html' %}{% block title %}بوست اکانت | نئوگیم{% endblock %}{% block content %}
+<section class="page-head container">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <span>بوست اکانت</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">بوست <i>حرفه‌ای اکانت</i></h1>
+  <p class="sec-sub">رنک فعلی و مقصدت رو انتخاب کن — قیمت رو زنده ببین ⚡</p>
+</section>
+<div class="container boost-grid">
+  <form method="post" class="card calc">{% csrf_token %}
+    <label>🎮 بازی</label>
+    <select id="bGame" name="game">{% for g in games %}<option value="{{ g.id }}">{{ g.name }}</option>{% endfor %}</select>
+    <label>📍 رنک فعلی</label>
+    <div class="seg">{% for v, t in ranks %}<label class="seg-item"><input type="radio" name="cur" value="{{ v }}" {% if forloop.first %}checked{% endif %}><span>{{ t }}</span></label>{% endfor %}</div>
+    <label>🎯 رنک مقصد</label>
+    <div class="seg">{% for v, t in ranks %}<label class="seg-item"><input type="radio" name="tgt" value="{{ v }}" {% if forloop.counter == 2 %}checked{% endif %}><span>{{ t }}</span></label>{% endfor %}</div>
+    <label>✨ گزینه‌های اضافی</label>
+    <label class="opt"><input type="checkbox" id="optPriority" name="priority"> ⚡ اولویت بالا (۲۵٪+)</label>
+    <label class="opt"><input type="checkbox" id="optStream" name="stream"> 📺 استریم زنده (۱۰٪+)</label>
+    <button class="btn btn-primary" style="width:100%;margin-top:16px">ثبت سفارش بوست ⚡</button>
+  </form>
+  <div class="card summary">
+    <small style="color:var(--muted)">قیمت تقریبی</small>
+    <div class="big" id="boostPrice">$۳۰</div>
+    <div class="sum-row"><span>⏱ زمان تقریبی</span><span id="boostEta" style="color:var(--cyan)">۲ روز</span></div>
+    <div class="sum-row"><span>🟢 بوستر آنلاین</span><span style="color:var(--green)">۱۴ نفر</span></div>
+    <div class="sum-row"><span>🔐 امنیت اکانت</span><span style="color:var(--green)">تضمینی</span></div>
+    <p style="color:var(--dim);font-size:.78rem;margin-top:12px">پرداخت امن · گارانتی بازگشت وجه</p>
+  </div>
+</div>
+{% endblock %}

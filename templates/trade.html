@@ -1,0 +1,31 @@
+{% extends 'base.html' %}{% block title %}ترید اکانت | نئوگیم{% endblock %}{% block content %}
+<section class="page-head container">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <span>خرید و فروش اکانت</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">ترید <i>امن اکانت</i></h1>
+  <p class="sec-sub">اکانت‌های وریفای‌شده با اسکرو تضمینی <svg class="ic ic-green"><use href="#i-lock"/></svg></p>
+</section>
+<div class="container" style="padding-bottom:80px">
+  <div class="acc-grid" style="margin-bottom:50px">
+    {% for l in listings %}
+    <div class="card acc-card" style="--edge:{{ l.game.color }}">
+      <div class="acc-top"><span class="av"><svg class="ic ic-big" style="width:30px;height:30px"><use href="#i-{{ l.icon }}"/></svg></span>
+        <div><b>{{ l.title }}</b><small>فروشنده: {{ l.seller|default:'نئوگیم' }} {% if l.verified %}· <span class="badge b-ok" style="font-size:.65rem">✓ وریفای</span>{% endif %}</small></div></div>
+      {% if l.stats %}<div class="acc-stats">{% for s in l.stats|slice:':12' %}{% endfor %}<div><b>{{ l.stats }}</b><small>مشخصات</small></div></div>{% endif %}
+      <div class="item-foot"><span class="price" style="--edge:{{ l.game.color }}">${{ l.price|floatformat:2 }}</span>
+      <button class="btn btn-primary sm" data-toast="درخواست خرید ثبت شد — منتظر اسکرو باش 🔐">خرید</button></div>
+    </div>
+    {% empty %}<p style="color:var(--muted)">هنوز آگهی‌ای ثبت نشده.</p>{% endfor %}
+  </div>
+  <div class="card sell-panel" style="max-width:640px;margin-inline:auto">
+    <h3 style="margin-bottom:6px">اکانتت رو بفروش <svg class="ic ic-gold"><use href="#i-coin"/></svg></h3>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">آگهی پس از بررسی تیم، با بج «وریفای» منتشر می‌شه.</p>
+    <form method="post">{% csrf_token %}
+      <div class="field"><span class="f-icon"><svg class="ic ic-violet"><use href="#i-gamepad"/></svg></span><select name="game" required>{% for g in games_all %}{% endfor %}<option value="">انتخاب بازی</option>{% for g in games %}<option value="{{ g.id }}">{{ g.name }}</option>{% endfor %}</select></div>
+      <div class="field"><span class="f-icon"><svg class="ic ic-pink"><use href="#i-tag"/></svg></span><input name="title" placeholder="عنوان آگهی (مثلاً Warframe رنک ۱۸)" required></div>
+      <div class="field"><span class="f-icon"><svg class="ic ic-cyan"><use href="#i-chart"/></svg></span><input name="stats" placeholder="مشخصات خلاصه (رنک، آیتم‌ها...)"></div>
+      <div class="field"><span class="f-icon">💲</span><input name="price" type="number" step="0.01" placeholder="قیمت (دلار)" required></div>
+      <button class="btn btn-neon" style="width:100%">ثبت آگهی فروش</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

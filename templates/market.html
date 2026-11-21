@@ -1,0 +1,31 @@
+{% extends 'base.html' %}{% block title %}مارکت آیتم | نئوگیم{% endblock %}{% block content %}
+<section class="page-head container">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <span>مارکت آیتم</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">مارکت <i>آیتم‌ها</i></h1>
+  <p class="sec-sub">{{ items|length }} نتیجه پیدا شد</p>
+</section>
+<div class="container market">
+  <aside class="card filters"><form method="get">
+    <div class="f-group"><h5>جستجو</h5><div class="field" style="margin:0"><span class="f-icon"><svg class="ic ic-cyan"><use href="#i-search"/></svg></span><input name="q" value="{{ q }}" placeholder="نام آیتم..."></div></div>
+    <div class="f-group"><h5>بازی</h5>{% for g in games %}<label class="f-check"><input type="checkbox" name="game" value="{{ g.slug }}"> {{ g.name }}</label>{% endfor %}</div>
+    <div class="f-group"><h5>کمیابی</h5>
+      <label class="f-check"><input type="checkbox" name="rarity" value="gold"> افسانه‌ای</label>
+      <label class="f-check"><input type="checkbox" name="rarity" value="epic"> اپیک</label>
+      <label class="f-check"><input type="checkbox" name="rarity" value="rare"> کمیاب</label></div>
+    <div class="f-group"><h5>حداکثر قیمت — <span class="range-val">${{ maxp }}</span></h5>
+      <input type="range" name="maxp" min="5" max="200" value="{{ maxp }}"></div>
+    <div class="f-group"><h5>مرتب‌سازی</h5>
+      <select name="sort" style="width:100%;padding:10px;border-radius:12px;background:var(--bg1);border:1px solid var(--stroke)">
+        <option value="new" {% if sort == 'new' %}selected{% endif %}>جدیدترین</option>
+        <option value="cheap" {% if sort == 'cheap' %}selected{% endif %}>ارزان‌ترین</option>
+        <option value="exp" {% if sort == 'exp' %}selected{% endif %}>گران‌ترین</option>
+      </select></div>
+    <button class="btn btn-primary sm" style="width:100%">اعمال فیلتر <svg class="ic ic-gold"><use href="#i-bolt"/></svg></button>
+  </form></aside>
+  <div>
+    <div class="items-grid">
+      {% for item in items %}{% include 'includes/item.html' %}{% empty %}<p style="color:var(--muted)">چیزی پیدا نشد <svg class="ic ic-violet"><use href="#i-help"/></svg></p>{% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}{% block title %}سبد خرید | نئوگیم{% endblock %}{% block content %}
+<section class="page-head container">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <span>سبد خرید</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">سبد <i>خرید</i></h1>
+</section>
+<div class="container" style="padding-bottom:80px">
+  {% if rows %}
+  <div class="card table-wrap">
+    <table><thead><tr><th>آیتم</th><th>تعداد</th><th>جمع</th></tr></thead><tbody>
+      {% for row in rows %}<tr><td><svg class="ic ic-cyan"><use href="#i-{{ row.item.icon }}"/></svg> {{ row.item.name }}</td><td>{{ row.qty }}</td><td style="color:var(--cyan)">${{ row.sum|floatformat:2 }}</td></tr>{% endfor %}
+      <tr><td colspan="2"><b>مجموع</b></td><td style="color:var(--gold);font-weight:900">${{ total|floatformat:2 }}</td></tr>
+    </tbody></table>
+  </div>
+  <div style="margin-top:20px;text-align:center">
+    <a href="{% url 'checkout' %}" class="btn btn-primary"><svg class="ic ic-green"><use href="#i-wallet"/></svg> ادامه به اطلاعات تحویل</a>
+  </div>
+  {% else %}
+  <div class="card" style="padding:60px;text-align:center;color:var(--muted)">
+    <div style="font-size:4rem"><svg class="ic ic-cyan"><use href="#i-cart"/></svg></div><p style="margin:14px 0 22px">سبد خریدت خالیه!</p>
+    <a href="{% url 'market' %}" class="btn btn-primary">رفتن به مارکت</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

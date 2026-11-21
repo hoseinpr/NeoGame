@@ -1,0 +1,119 @@
+{% load static %}<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}نئوگیم | مارکت آیتم بازی{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=4">
+<style>/* critical icon css - cache-proof */
+.ic{width:1.15em;height:1.15em;vertical-align:-.22em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:inline-block}
+.ic-big{width:54px;height:54px;stroke-width:1.4}.ic-xl{width:84px;height:84px;stroke-width:1.2}
+.ic-cyan{color:#22d3ee}.ic-violet{color:#a78bfa}.ic-pink{color:#f472b6}.ic-gold{color:#fbbf24}.ic-green{color:#34d399}.ic-bronze{color:#cd7f32}.ic-silver{color:#c8c8d0}
+.btn .ic,.fab-item .ic,.acc-head .ic{width:1.2em;height:1.2em}
+</style>
+</head><body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs>
+<linearGradient id="gL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+</defs>
+<symbol id="i-logo" viewBox="0 0 24 24"><path d="M12 2l8.5 5v10L12 22 3.5 17V7z" fill="url(#gL)"/><path d="M9 15V9l3 3 3-3v6" stroke="#041018" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 4h2l2.6 11h10L20 8H6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L5 13h5l-1 9 8-11h-5z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="2"/><rect x="17" y="13" width="4" height="6" rx="2"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 .2c0 1.8-2.5 2-2.5 3.8"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.8 6.3.8-4.6 4.3 1.2 6.1-5.6-3-5.6 3 1.2-6.1L3 9.6l6.3-.8z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-package" viewBox="0 0 24 24"><path d="M12 3l8 4v10l-8 4-8-4V7z"/><path d="M4 7l8 4 8-4M12 11v10"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M16 12h5v4h-5a2 2 0 0 1 0-4z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></symbol>
+<symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 4H6v16h8"/><path d="M10 12h11M18 8l3 4-3 4"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-6M10 20V8M15 20v-10M20 20V6"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+<symbol id="i-sword" viewBox="0 0 24 24"><path d="M20 4L9 15l-3 5 5-3L20 4z"/><path d="M5 15l4 4"/></symbol>
+<symbol id="i-bow" viewBox="0 0 24 24"><path d="M5 3c9 1 15 7 16 16"/><path d="M5 3l16 16"/><path d="M13 11l5-1-1 5"/></symbol>
+<symbol id="i-shieldcheck" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-gem" viewBox="0 0 24 24"><path d="M7 3h10l4 6-9 12L3 9z"/><path d="M3 9h18M12 21L8 9l3-6M12 21l4-12-3-6"/></symbol>
+<symbol id="i-trident" viewBox="0 0 24 24"><path d="M12 22V3M9 6l3-3 3 3M7 12a5 5 0 0 0 10 0M7 12V9M17 12V9"/></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></symbol>
+<symbol id="i-potion" viewBox="0 0 24 24"><path d="M10 3h4M11 3v4l-4.5 8a4.5 4.5 0 0 0 4 6.5h3a4.5 4.5 0 0 0 4-6.5L13 7V3"/><path d="M8 15h8"/></symbol>
+<symbol id="i-mask" viewBox="0 0 24 24"><path d="M4 6c4 2 12 2 16 0v6c0 5-4 8-8 8s-8-3-8-8z"/><circle cx="9" cy="11" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="11" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-helmet" viewBox="0 0 24 24"><path d="M12 2l7 4v7c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M8.5 10h7M12 12v6"/></symbol>
+<symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="14" r="5"/><path d="M8 3l4 6 4-6M6 3h3M15 3h3"/></symbol>
+<symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18h16M4 18l-1-9 5 4 4-7 4 7 5-4-1 9z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.7 7-6.5 0-4-3-6-4.5-9C13 9 10 9.5 10 7c-2.5 2-4 5-4 8.5C6 19.3 8 22 12 22z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18-3-4-3-14.5 0-18z"/></symbol>
+<symbol id="i-gamepad" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="16" cy="11.5" r=".9" fill="currentColor" stroke="none"/><circle cx="18" cy="13.5" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 3H4z"/><path d="M10 19a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-wave" viewBox="0 0 24 24"><path d="M7 11V6a1.5 1.5 0 0 1 3 0v4M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V6a1.5 1.5 0 0 1 3 0v6c0 4-2.5 7-6 7s-5-2-6-5l-1.5-4a1.4 1.4 0 0 1 2.6-1L7 11"/></symbol>
+<symbol id="i-instagram" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.5" cy="7.5" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-youtube" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+</svg>
+<div class="bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span class="grid-floor"></span><span class="noise"></span></div>
+<header class="nav-wrap"><div class="nav"><div class="nav-in">
+  <a class="logo" href="{% url 'home' %}"><span class="logo-mark">⬡</span> نئوگیم</a>
+  <ul class="links" id="navLinks">
+    <li><a href="{% url 'home' %}">خانه</a></li>
+    <li><a href="{% url 'market' %}">مارکت آیتم</a></li>
+    <li><a href="{% url 'boost' %}">بوست اکانت</a></li>
+    <li><a href="{% url 'trade' %}">خرید و فروش اکانت</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="icon-btn" href="{% url 'cart' %}"><svg class="ic ic-cyan"><use href="#i-cart"/></svg><span class="dot">{{ cart_count }}</span></a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'dashboard' %}" class="btn btn-glass sm"><svg class="ic ic-violet"><use href="#i-user"/></svg> {{ user.username }}</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="btn btn-glass sm">ورود | ثبت‌نام</a>
+    {% endif %}
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</div></div></header>
+{% block content %}{% endblock %}
+<footer class="footer"><div class="container">
+  <div class="f-grid">
+    <div class="f-col">
+      <a class="logo" href="{% url 'home' %}"><span class="logo-mark"><svg class="ic" style="width:22px;height:22px;color:#041018"><use href="#i-logo"/></svg></span> نئوگیم</a>
+      <p>بزرگ‌ترین مارکت آیتم، بوست و ترید اکانت بازی‌های آنلاین؛ با اسکرو امن و تحویل آنی.</p>
+      <div class="socials">
+        <a class="icon-btn" href="{{ TELEGRAM_URL }}" target="_blank" aria-label="تلگرام"><svg class="ic ic-cyan"><use href="#i-send"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="دیسکورد"><svg class="ic ic-violet"><use href="#i-gamepad"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="اینستاگرام"><svg class="ic ic-pink"><use href="#i-instagram"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="یوتیوب"><svg class="ic ic-gold"><use href="#i-youtube"/></svg></a>
+      </div>
+    </div>
+    <div class="f-col"><h4>خدمات</h4>
+      <a href="{% url 'market' %}">مارکت آیتم</a><a href="{% url 'boost' %}">بوست اکانت</a>
+      <a href="{% url 'trade' %}">خرید و فروش اکانت</a><a href="{% url 'faq' %}">سوالات متداول</a></div>
+    <div class="f-col"><h4>پشتیبانی ۲۴/۷</h4>
+      <a href="{{ TELEGRAM_URL }}" target="_blank">تلگرام پشتیبانی</a><a href="{% url 'faq' %}?cat=pay">امنیت و اسکرو</a>
+      <a href="{% url 'faq' %}?cat=sup">راهنمای تماس</a><a href="{% url 'dashboard' %}">پیگیری سفارش</a></div>
+    <div class="f-col"><h4>خبرنامه</h4>
+      <p style="margin-top:0">تخفیف‌ها و آیتم‌های جدید رو اول از همه بگیر.</p>
+      <form class="news" data-fake="عضو خبرنامه شدی"><input placeholder="ایمیل شما..."><button class="btn btn-primary sm">عضویت</button></form></div>
+  </div>
+  <div class="f-bottom"><span>نئوگیم © ۲۰۲۶ — طراحی نئون / لیکویید گلس</span>
+  <span>پرداخت امن · SSL · اسکرو تضمینی <svg class="ic ic-green"><use href="#i-lock"/></svg></span></div>
+</div></footer>
+
+<div class="fab-wrap" id="fabWrap">
+  <div class="fab-panel">
+    <div class="fab-head"><span><svg class="ic ic-cyan"><use href="#i-headset"/></svg> پشتیبانی ۲۴/۷</span><span class="badge b-ok">آنلاین</span></div>
+    <a class="fab-item" href="{{ TELEGRAM_URL }}" target="_blank" rel="noopener"><svg class="ic ic-cyan"><use href="#i-send"/></svg> <div>تلگرام پشتیبانی<small>میانگین پاسخ: زیر ۵ دقیقه</small></div></a>
+    <a class="fab-item" href="{% url 'faq' %}"><svg class="ic ic-violet"><use href="#i-help"/></svg> <div>سوالات متداول<small>جواب‌های سریع</small></div></a>
+    <a class="fab-item" href="{% url 'faq' %}?cat=pay"><svg class="ic ic-green"><use href="#i-lock"/></svg> <div>امنیت و پرداخت<small>اسکرو و گارانتی</small></div></a>
+  </div>
+  <button class="fab" id="fabBtn" aria-label="پشتیبانی"><svg class="ic ic-cyan"><use href="#i-headset"/></svg><span class="fab-dot"></span></button>
+</div>
+<div id="toast"></div>
+<script src="{% static 'js/app.js' %}?v=4"></script>
+{% for m in messages %}<script>toast("{{ m }}")</script>{% endfor %}
+</body></html>

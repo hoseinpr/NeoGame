@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>داشبورد | نئوگیم</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span class="grid-floor"></span><span class="noise"></span></div>
+
+<header class="nav-wrap"><div class="nav"><div class="nav-in">
+  <a class="logo" href="index.html"><span class="logo-mark">⬡</span> نئوگیم</a>
+  <ul class="links" id="navLinks">
+    <li><a href="index.html" data-nav>خانه</a></li>
+    <li><a href="market.html" data-nav>مارکت آیتم</a></li>
+    <li><a href="boost.html" data-nav>بوست اکانت</a></li>
+    <li><a href="trade.html" data-nav>خرید و فروش اکانت</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="icon-btn" data-toast="۲ پیام جدید 💬">🔔<span class="dot">۲</span></button>
+    <span class="btn btn-glass sm" style="cursor:default">🥷 سلام، امیرحسین</span>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</div></div></header>
+
+<div class="container dash">
+  <aside class="card side reveal">
+    <a href="#" class="active">📊 داشبورد</a>
+    <a href="#" data-toast="بخش سفارش‌ها">📦 سفارش‌های من</a>
+    <a href="#" data-toast="بخش کیف پول">💳 کیف پول</a>
+    <a href="#" data-toast="آگهی‌های من">🏷️ آگهی‌های من</a>
+    <a href="#" data-toast="۲ پیام خوانده‌نشده">💬 پیام‌ها</a>
+    <a href="#" data-toast="تنظیمات حساب">⚙️ تنظیمات</a>
+    <a href="index.html" data-toast="خروج موفق 👋" style="color:var(--red)">🚪 خروج</a>
+  </aside>
+
+  <main>
+    <div class="topbar reveal">
+      <div><h2 style="font-weight:900">سلام امیرحسین 👋</h2><p style="color:var(--muted);font-size:.88rem">اینجا خلاصه‌ی فعالیتته</p></div>
+      <form class="search" style="margin:0;max-width:300px" data-fake="در حال جستجو..."><input placeholder="جستجو..."><button class="btn btn-primary sm">🔍</button></form>
+    </div>
+
+    <div class="stat-grid reveal">
+      <div class="card s-card" style="--edge:#22d3ee"><small>💰 موجودی کیف پول</small><b>$۲۵٫۰۰</b></div>
+      <div class="card s-card" style="--edge:#a78bfa"><small>⚡ سفارش فعال</small><b>۳</b></div>
+      <div class="card s-card" style="--edge:#34d399"><small>✅ تکمیل‌شده</small><b>۲۷</b></div>
+      <div class="card s-card" style="--edge:#f472b6"><small>💬 پیام جدید</small><b>۲</b></div>
+    </div>
+
+    <div class="dash-row reveal">
+      <div class="card chart">
+        <div style="display:flex;justify-content:space-between;align-items:center"><h3>📈 هزینه‌ی هفتگی</h3><span class="badge b-ok">+۱۸٪</span></div>
+        <div class="bars">
+          <div class="bar" style="--h:45%"><small>ش</small></div>
+          <div class="bar" style="--h:70%"><small>ی</small></div>
+          <div class="bar" style="--h:35%"><small>د</small></div>
+          <div class="bar" style="--h:85%"><small>س</small></div>
+          <div class="bar" style="--h:55%"><small>چ</small></div>
+          <div class="bar" style="--h:95%"><small>پ</small></div>
+          <div class="bar" style="--h:60%"><small>ج</small></div>
+        </div>
+      </div>
+      <div class="card wallet">
+        <small style="color:var(--muted)">💳 کیف پول نئوگیم</small>
+        <div class="num">•••• •••• •••• ۴۲۲</div>
+        <div style="display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem"><span>امیرحسین محمدی</span><span>۰۸/۲۸</span></div>
+        <div style="display:flex;gap:10px;margin-top:20px">
+          <button class="btn btn-primary sm" style="flex:1" data-toast="در حال انتقال به درگاه شارژ 💳">+ شارژ</button>
+          <button class="btn btn-glass sm" style="flex:1" data-toast="درخواست برداشت ثبت شد ✅">برداشت</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card table-wrap reveal" style="margin-bottom:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0"><h3>📦 آخرین سفارش‌ها</h3><a href="#" class="chip" data-toast="همه‌ی سفارش‌ها">مشاهده همه</a></div>
+      <table>
+        <thead><tr><th>شناسه</th><th>آیتم / خدمات</th><th>نوع</th><th>تاریخ</th><th>وضعیت</th><th>مبلغ</th></tr></thead>
+        <tbody>
+          <tr><td>#NG-۴۸۲۱</td><td>🗡️ شمشیر یخی آذرخش</td><td><span class="chip" style="padding:3px 12px">آیتم</span></td><td>۲۰ مرداد</td><td><span class="st st-ok">تکمیل</span></td><td style="color:var(--cyan)">$۲۴٫۹۹</td></tr>
+          <tr><td>#NG-۴۸۱۵</td><td>⚡ بوست گلد ← الماس</td><td><span class="chip" style="padding:3px 12px">بوست</span></td><td>۱۸ مرداد</td><td><span class="st st-run">در حال انجام</span></td><td style="color:var(--cyan)">$۱۰۰٫۰۰</td></tr>
+          <tr><td>#NG-۴۷۰</td><td>🤖 اکانت Warframe رنک ۱۲</td><td><span class="chip" style="padding:3px 12px">ترید</span></td><td>۱۲ مرداد</td><td><span class="st st-ok">تکمیل</span></td><td style="color:var(--cyan)">$۲۱۰٫۰۰</td></tr>
+          <tr><td>#NG-۴۷۲</td><td>🏹 کمان خلأ</td><td><span class="chip" style="padding:3px 12px">آیتم</span></td><td>۵ مرداد</td><td><span class="st st-wait">در انتظار</span></td><td style="color:var(--cyan)">$۲۵٫۹۹</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card act-list reveal">
+      <h3 style="margin-bottom:6px">🕒 فعالیت اخیر</h3>
+      <div class="act"><i>✅</i><div>سفارش #NG-۴۸۲ تکمیل شد<small> ساعت پیش</small></div></div>
+      <div class="act"><i>⚡</i><div>بوستر ShadowPro به سفارش بوست شما اختصاص یافت<small>دیروز</small></div></div>
+      <div class="act"><i>💰</i><div>کیف پول به مبلغ $۲۵ شارژ شد<small>۲ روز پیش</small></div></div>
+      <div class="act"><i>💬</i><div>پیام جدید از پشتیبانی<small>۳ روز پیش</small></div></div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer"><div class="container">
+  <div class="f-bottom"><span>نئوگیم © ۲۰۲۶ — طراحی نئون / لیکویید گلس ⬡</span><span>پرداخت امن · SSL · اسکرو تضمینی 💳</span></div>
+</div></footer>
+<div id="toast"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

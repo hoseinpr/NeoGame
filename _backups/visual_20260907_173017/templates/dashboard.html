@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% block title %}داشبورد | نئوگیم{% endblock %}{% block content %}
+<div class="container dash">
+  <aside class="card side">
+    <a href="#" class="active">📊 داشبورد</a>
+    <a href="{% url 'market' %}">🛍️ مارکت</a>
+    <a href="{% url 'boost' %}">⚡ سفارش بوست</a>
+    <a href="{% url 'trade' %}">️ آگهی‌ها</a>
+    <a href="{% url 'logout' %}" style="color:var(--red)">🚪 خروج</a>
+  </aside>
+  <main>
+    <div class="topbar"><div><h2 style="font-weight:900">سلام {{ user.username }} 👋</h2><p style="color:var(--muted);font-size:.88rem">خلاصه‌ی فعالیتت اینجاست</p></div></div>
+    <div class="stat-grid">
+      <div class="card s-card"><small>💰 کیف پول</small><b>${{ wallet|floatformat:2 }}</b></div>
+      <div class="card s-card"><small>📦 سفارش آیتم</small><b>{{ orders|length }}</b></div>
+      <div class="card s-card"><small>⚡ سفارش بوست</<b>{{ boosts|length }}</b></div>
+      <div class="card s-card"><small>🏷️ آگهی‌های من</small><b>{{ listings|length }}</b></div>
+    </div>
+
+    <div class="card table-wrap" style="margin-bottom:22px">
+      <h3 style="padding:14px 0">📦 سفارش‌های آیتم</h3>
+      <table><thead><tr><th>شناسه</th><th>آیتم</th><th>آیدی بازی</th><th>زمان ترید</th><th>وضعیت</th><th>مبلغ</th></tr></thead><tbody>
+        {% for o in orders %}<tr><td>#{{ o.id }}</td><td>{{ o.item.icon }} {{ o.item.name }}</td>
+        <td style="color:var(--cyan)">{{ o.game_username|default:'-' }}</td>
+        <td style="color:var(--violet)">{{ o.get_delivery_slot_display|default:'-' }}</td>
+        <td><span class="st {% if o.status == 'done' %}st-ok{% elif o.status == 'processing' %}st-run{% else %}st-wait{% endif %}">{{ o.get_status_display }}</span></td>
+        <td style="color:var(--cyan)">${{ o.total|floatformat:2 }}</td></tr>{% empty %}<tr><td colspan="6" style="text-align:center">هنوز سفارشی نداری 😕</td></tr>{% endfor %}
+      </tbody></table>
+    </div>
+
+    <div class="card table-wrap" style="margin-bottom:22px">
+      <h3 style="padding:14px 0">⚡ سفارش‌های بوست</h3>
+      <table><thead><tr><th>شناسه</th><th>بازی</th><th>مسیر رنک</th><th>وضعیت</th><th>مبلغ</th></tr></thead><tbody>
+        {% for b in boosts %}<tr><td>#B{{ b.id }}</td><td>{{ b.game.icon }} {{ b.game.name }}</td><td>رنک {{ b.cur }} → {{ b.tgt }}</td>
+        <td><span class="st {% if b.status == 'done' %}st-ok{% elif b.status == 'processing' %}st-run{% else %}st-wait{% endif %}">{{ b.get_status_display }}</span></td>
+        <td style="color:var(--cyan)">${{ b.price|floatformat:2 }}</td></tr>{% empty %}<tr><td colspan="5" style="text-align:center">سفارش بوستی نداری ⚡</td></tr>{% endfor %}
+      </tbody></table>
+    </div>
+
+    <div class="card act-list">
+      <h3 style="margin-bottom:6px">🏷️ آگهی‌های من</h3>
+      {% for l in listings %}<div class="act"><i>{{ l.icon }}</i><div>{{ l.title }} — ${{ l.price|floatformat:2 }}<small>{% if l.verified %}✓ وریفای شده{% else %}در انتظار بررسی{% endif %}</small></div></div>{% empty %}<p style="color:var(--muted)">آگهی‌ای ثبت نکردی.</p>{% endfor %}
+    </div>
+  </main>
+</div>
+{% endblock %}

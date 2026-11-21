@@ -1,0 +1,8 @@
+<a href="{% url 'product' item.id %}" class="card item" style="--edge:{% if item.rarity == 'gold' %}#fbbf24{% elif item.rarity == 'epic' %}#c084fc{% else %}#22d3ee{% endif %}">
+  <span class="badge b-{{ item.rarity }}">{{ item.get_rarity_display }}</span>
+  <div class="art">{{ item.icon }}</div><h4>{{ item.name }}</h4><span class="tag">{{ item.game.name }}</span>
+  <div class="item-foot">
+    <div><span class="price">${{ item.price|floatformat:2 }}</span>{% if item.old_price %}<span class="old">${{ item.old_price|floatformat:2 }}</span>{% endif %}</div>
+    <form method="post" action="{% url 'cart_add' item.id %}" onsubmit="event.stopPropagation()">{% csrf_token %}<button class="add-btn">+</button></form>
+  </div>
+</a>

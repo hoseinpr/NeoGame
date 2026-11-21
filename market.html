@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مارکت آیتم | نئوگیم</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span class="grid-floor"></span><span class="noise"></span></div>
+
+<header class="nav-wrap"><div class="nav"><div class="nav-in">
+  <a class="logo" href="index.html"><span class="logo-mark">⬡</span> نئوگیم</a>
+  <ul class="links" id="navLinks">
+    <li><a href="index.html" data-nav>خانه</a></li>
+    <li><a href="market.html" data-nav>مارکت آیتم</a></li>
+    <li><a href="boost.html" data-nav>بوست اکانت</a></li>
+    <li><a href="trade.html" data-nav>خرید و فروش اکانت</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="icon-btn" data-toast="سبد خرید خالی است 🛒">🛒<span class="dot" id="cartDot">۰</span></button>
+    <a href="auth.html" class="btn btn-glass sm">ورود | ثبت‌نام</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</div></div></header>
+
+<section class="page-head container reveal">
+  <div class="crumbs"><a href="index.html">خانه</a> / <span>مارکت آیتم</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">مارکت <i>آیتم‌ها</i></h1>
+  <p class="sec-sub">+۷٬۳۰ آیتم از محبوب‌ترین بازی‌ها</p>
+</section>
+
+<div class="container market">
+  <aside class="card filters reveal">
+    <div class="f-group"><h5>دسته‌بندی</h5>
+      <div class="f-chips"><span class="chip active">همه</span><span class="chip">سلاح</span><span class="chip">زره</span><span class="chip">اسکین</span><span class="chip">ارز</span></div>
+    </div>
+    <div class="f-group"><h5>بازی</h5>
+      <label class="f-check"><input type="checkbox" checked> Warframe</label>
+      <label class="f-check"><input type="checkbox" checked> Dota 2</label>
+      <label class="f-check"><input type="checkbox"> Albion Online</label>
+      <label class="f-check"><input type="checkbox"> CS2</label>
+    </div>
+    <div class="f-group"><h5>کمیابی</h5>
+      <label class="f-check"><input type="checkbox"> افسانه‌ای (Legendary)</label>
+      <label class="f-check"><input type="checkbox"> اپیک (Epic)</label>
+      <label class="f-check"><input type="checkbox"> کمیاب (Rare)</label>
+    </div>
+    <div class="f-group"><h5>محدوده قیمت — <span class="range-val" id="rangeVal">تا $۲۰۰</span></h5>
+      <input type="range" id="priceRange" min="5" max="200" value="200">
+    </div>
+    <button class="btn btn-glass sm" data-toast="فیلترها پاک شد 🧹">پاک کردن فیلترها</button>
+  </aside>
+
+  <div>
+    <div class="toolbar reveal">
+      <span style="color:var(--muted);font-size:.9rem">نمایش <b style="color:var(--cyan)">۱–۸</b> از ۷٬۳۴۲ نتیجه</span>
+      <select><option>جدیدترین</option><option>ارزان‌ترین</option><option>گران‌ترین</option><option>پرفروش‌ترین</option></select>
+    </div>
+    <div class="items-grid reveal">
+      <a href="product.html" class="card item" style="--edge:#fbbf24"><span class="badge b-gold">افسانه‌ای</span><div class="art">🗡️</div><h4>شمشیر یخی آذرخش</h4><span class="tag">Warframe</span><div class="item-foot"><div><span class="price">$۲۴٫۹۹</span><span class="old">$۳۴٫۹۹</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#c084fc"><span class="badge b-epic">اپیک</span><div class="art">🏹</div><h4>کمان خلأ</h4><span class="tag">Dota 2</span><div class="item-foot"><div><span class="price">$۲۵٫۹۹</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#22d3ee"><span class="badge b-rare">کمیاب</span><div class="art">🛡️</div><h4>زره نگهبان</h4><span class="tag">Albion</span><div class="item-foot"><div><span class="price">$۱۴٫۹۹</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#f472b6"><span class="badge b-epic">اپیک</span><div class="art">💠</div><h4>طلسم جنگجو</h4><span class="tag">Warframe</span><div class="item-foot"><div><span class="price">$۹٫۹۹</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#fbbf24"><span class="badge b-gold">افسانه‌ای</span><div class="art">🔱</div><h4>نیزه امپراتور</h4><span class="tag">Dota 2</span><div class="item-foot"><div><span class="price">$۴۹٫۰۰</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#22d3ee"><span class="badge b-rare">کمیاب</span><div class="art">🪙</div><h4>۱۰۰ پلاتینیوم</h4><span class="tag">Warframe</span><div class="item-foot"><div><span class="price">$۷٫۵۰</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#c084fc"><span class="badge b-epic">اپیک</span><div class="art">🧪</div><h4>معجون قدرت</h4><span class="tag">Albion</span><div class="item-foot"><div><span class="price">$۴٫۹۹</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+      <a href="product.html" class="card item" style="--edge:#f87171"><span class="badge b-gold">افسانه‌ای</span><div class="art">🎭</div><h4>ماسک Arcana</h4><span class="tag">Dota 2</span><div class="item-foot"><div><span class="price">$۸۹٫۰۰</span><span class="old">$۱۲۰</span></div><button class="add-btn" data-add onclick="event.preventDefault()">+</button></div></a>
+    </div>
+    <div class="pages reveal">
+      <button class="page-btn active">۱</button><button class="page-btn">۲</button><button class="page-btn">۳</button><button class="page-btn">←</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container">
+  <div class="f-bottom"><span>نئوگیم © ۲۰۲۶ — طراحی نئون / لیکویید گلس ⬡</span><span>پرداخت امن · SSL · اسکرو تضمینی 💳</span></div>
+</div></footer>
+<div id="toast"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

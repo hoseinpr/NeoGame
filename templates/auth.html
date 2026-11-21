@@ -1,0 +1,28 @@
+{% extends 'base.html' %}{% block title %}ورود | نئوگیم{% endblock %}{% block content %}
+<div class="auth">
+  <div class="auth-side"><div class="big-logo">⬡</div>
+    <blockquote>«به جامعه‌ی +۱۲٬۵۰۰ گیمر نئوگیم خوش اومدی — جایی که آیتم، بوست و ترید، سریع و امنه.»</blockquote></div>
+  <div class="auth-form">
+    <div class="card auth-card" data-tabs>
+      <div class="tabs-bar" style="justify-content:center;border:0;margin-bottom:10px">
+        <button type="button" class="tab-btn active" data-tab="f-login">ورود</button>
+        <button type="button" class="tab-btn" data-tab="f-register">ثبت‌نام</button>
+      </div>
+      <form class="tab-pane active" id="f-login" method="post" action="{% url 'login' %}">{% csrf_token %}
+        <p class="sub">خوش برگشتی! وارد حسابت شو.</p>
+        <div class="field"><span class="f-icon"><svg class="ic ic-violet"><use href="#i-user"/></svg></span><input name="username" placeholder="نام کاربری" required></div>
+        <div class="field"><span class="f-icon"><svg class="ic ic-green"><use href="#i-lock"/></svg></span><input name="password" type="password" placeholder="رمز عبور" required></div>
+        <button class="btn btn-primary" style="width:100%">ورود به حساب</button>
+      </form>
+      <form class="tab-pane" id="f-register" method="post" action="{% url 'register' %}">{% csrf_token %}
+        <p class="sub">حسابت رو بساز و ۱۰٪ تخفیف اولین خرید رو بگیر.</p>
+        <div class="field"><span class="f-icon"><svg class="ic ic-violet"><use href="#i-user"/></svg></span><input name="username" placeholder="نام کاربری" required></div>
+        <div class="field"><span class="f-icon"><svg class="ic ic-cyan"><use href="#i-mail"/></svg></span><input name="email" type="email" placeholder="ایمیل"></div>
+        <div class="field"><span class="f-icon"><svg class="ic ic-green"><use href="#i-lock"/></svg></span><input name="password" type="password" placeholder="رمز عبور" required></div>
+        <div class="field"><span class="f-icon"><svg class="ic ic-green"><use href="#i-lock"/></svg></span><input name="password2" type="password" placeholder="تکرار رمز عبور" required></div>
+        <button class="btn btn-primary" style="width:100%;margin-top:6px">ایجاد حساب</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوست اکانت | نئوگیم</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span class="grid-floor"></span><span class="noise"></span></div>
+
+<header class="nav-wrap"><div class="nav"><div class="nav-in">
+  <a class="logo" href="index.html"><span class="logo-mark">⬡</span> نئوگیم</a>
+  <ul class="links" id="navLinks">
+    <li><a href="index.html" data-nav>خانه</a></li>
+    <li><a href="market.html" data-nav>مارکت آیتم</a></li>
+    <li><a href="boost.html" data-nav>بوست اکانت</a></li>
+    <li><a href="trade.html" data-nav>خرید و فروش اکانت</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="icon-btn" data-toast="سبد خرید خالی است 🛒"><span class="dot" id="cartDot">۰</span></button>
+    <a href="auth.html" class="btn btn-glass sm">ورود | ثبت‌نام</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</div></div></header>
+
+<section class="page-head container reveal">
+  <div class="crumbs"><a href="index.html">خانه</a> / <span>بوست اکانت</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">بوست <i>حرفه‌ای اکانت</i></h1>
+  <p class="sec-sub">رنک فعلی و مقصدت رو انتخاب کن — قیمت و زمان رو همینجا ببین ⚡</p>
+</section>
+
+<div class="container boost-grid">
+  <div class="card calc reveal">
+    <label>🎮 بازی</label>
+    <select id="bGame"><option value="1">Dota 2</option><option value="1.1">Warframe</option><option value="0.9">Albion Online</option><option value="1.2">CS2</option></select>
+
+    <label>📍 رنک فعلی</label>
+    <div class="seg">
+      <label class="seg-item"><input type="radio" name="cur" value="0" checked><span>🥉 برنز</span></label>
+      <label class="seg-item"><input type="radio" name="cur" value="1"><span>🥈 سیلور</span></label>
+      <label class="seg-item"><input type="radio" name="cur" value="2"><span>🥇 گلد</span></label>
+      <label class="seg-item"><input type="radio" name="cur" value="3"><span>💎 پلاتین</span></label>
+      <label class="seg-item"><input type="radio" name="cur" value="4"><span>👑 الماس</span></label>
+    </div>
+
+    <label>🎯 رنک مقصد</label>
+    <div class="seg">
+      <label class="seg-item"><input type="radio" name="tgt" value="0"><span>🥉 برنز</span></label>
+      <label class="seg-item"><input type="radio" name="tgt" value="1" checked><span>🥈 سیلور</span></label>
+      <label class="seg-item"><input type="radio" name="tgt" value="2"><span>🥇 گلد</span></label>
+      <label class="seg-item"><input type="radio" name="tgt" value="3"><span>💎 پلاتین</span></label>
+      <label class="seg-item"><input type="radio" name="tgt" value="4"><span>👑 الماس</span></label>
+    </div>
+
+    <label>✨ گزینه‌های اضافی</label>
+    <label class="opt"><input type="checkbox" id="optPriority"> ⚡ اولویت بالا (تحویل سریع‌تر — ۲۵٪+)</label>
+    <label class="opt"><input type="checkbox" id="optStream"> 📺 استریم زنده‌ی بوست (۱۰٪+)</label>
+  </div>
+
+  <div class="card summary reveal">
+    <small style="color:var(--muted)">قیمت نهایی</small>
+    <div class="big" id="boostPrice">$۳۰</div>
+    <div class="sum-row"><span>⏱ زمان تقریبی</span><span id="boostEta" style="color:var(--cyan)">۲ روز</span></div>
+    <div class="sum-row"><span>🟢 بوستر آنلاین</span><span style="color:var(--green)">۱۴ نفر</span></div>
+    <div class="sum-row"><span>🔐 امنیت اکانت</span><span style="color:var(--green)">تضمینی</span></div>
+    <button class="btn btn-primary" style="width:100%;margin-top:20px" data-toast="سفارش بوست ثبت شد — منتظر بوستر باش ⚡">ثبت سفارش بوست ⚡</button>
+    <p style="color:var(--dim);font-size:.78rem;margin-top:12px">پرداخت امن · گارانتی بازگشت وجه</p>
+  </div>
+</div>
+
+<section class="container reveal">
+  <div class="ladder">
+    <div class="l-item"><i>🥉</i>برنز<br><b style="color:var(--gold)">$۲۹</b></div>
+    <div class="l-item"><i>🥈</i>سیلور<br><b style="color:var(--gold)">$۵۹</b></div>
+    <div class="l-item"><i>🥇</i>گلد<br><b style="color:var(--gold)">$۹۹</b></div>
+    <div class="l-item"><i>💎</i>پلاتین<br><b style="color:var(--gold)">$۱۴۹</b></div>
+    <div class="l-item"><i>👑</i>الماس<br><b style="color:var(--gold)">$۱۹۹</b></div>
+  </div>
+</section>
+
+<section class="section container reveal">
+  <div class="sec-head"><div><h2 class="sec-title">بوسترهای <i>برتر</i></h2><p class="sec-sub">گیمرهای حرفه‌ای و وریفای‌شده</p></div></div>
+  <div class="boosters">
+    <div class="card b-card2" style="--edge:#22d3ee"><span class="badge b-ok acc-item">آنلاین</span><div class="av">🥷</div><h3>ShadowPro</h3><div class="rate">★★★★★ <small>۴٫۹</small></div><p style="color:var(--muted);font-size:.83rem;margin:8px 0">+۱٬۲۰۰ سفارش موفق</p><div class="f-chips" style="justify-content:center"><span class="chip">Dota 2</span><span class="chip">CS2</span></div></div>
+    <div class="card b-card2" style="--edge:#a78bfa"><span class="badge b-ok acc-item">آنلاین</span><div class="av">🎮</div><h3>NovaQueen</h3><div class="rate">★★★★★ <small>۵٫۰</small></div><p style="color:var(--muted);font-size:.83rem;margin:8px 0">+۸۶۰ سفارش موفق</p><div class="f-chips" style="justify-content:center"><span class="chip">Warframe</span></div></div>
+    <div class="card b-card2" style="--edge:#f472b6"><span class="badge b-ok acc-item">آنلاین</span><div class="av">👾</div><h3>BlazeKing</h3><div class="rate">★★★★★ <small>۴٫۸</small></div><p style="color:var(--muted);font-size:.83rem;margin:8px 0">+۲٬۰۰ سفارش موفق</p><div class="f-chips" style="justify-content:center"><span class="chip">Albion</span><span class="chip">Dota 2</span></div></div>
+  </div>
+</section>
+
+<section class="section container reveal">
+  <div class="sec-head"><div><h2 class="sec-title">سوالات <i>متداول</i></h2></div></div>
+  <div style="display:grid;gap:12px">
+    <div class="card acc-item open"><div class="acc-head">آیا اکانت من امن می‌مونه؟</div><div class="acc-body">بله. بوسترها فقط از طریق VPN اختصاصی و با رعایت کامل قوانین بازی وارد می‌شن. تا امروز ۰ مورد بن گزارش نشده.</div></div>
+    <div class="card acc-item"><div class="acc-head">چقدر طول می‌کشه؟</div><div class="acc-body">بسته به اختلاف رنک، بین ۱ تا ۵ روز. با گزینه «اولویت بالا» تا ۳۰٪ سریع‌تر.</div></div>
+    <div class="card acc-item"><div class="acc-head">اگر بوست طبق انتظار نبود چی؟</div><div class="acc-body">۱۰٪ مبلغ از طریق اسکرو امن برگشت داده می‌شه — بدون هیچ سوالی.</div></div>
+    <div class="card acc-item"><div class="acc-head">می‌تونم فرآیند رو ببینم؟</div><div class="acc-body">بله، با فعال‌سازی گزینه «استریم زنده» کل فرآیند بوست رو به‌صورت زنده تماشا می‌کنی.</div></div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="f-bottom"><span>نئوگیم © ۲۰۲ — طراحی نئون / لیکویید گلس ⬡</span><span>پرداخت امن · SSL · اسکرو تضمینی 💳</span></div>
+</div></footer>
+<div id="toast"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

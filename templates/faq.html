@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}سوالات متداول | نئوگیم{% endblock %}
+{% block content %}
+<section class="page-head container">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <span>سوالات متداول</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">سوالات <i>متداول</i></h1>
+  <p class="sec-sub">جواب هر چی تو ذهنته اینجاست — اگه نبود، تلگرام پیام بده</p>
+</section>
+<div class="container" style="padding-bottom:80px">
+  <div class="f-chips" style="justify-content:center;margin-bottom:30px">
+    <a class="chip {% if not cat %}active{% endif %}" href="{% url 'faq' %}">همه</a>
+    {% for v, t in cats %}<a class="chip {% if cat == v %}active{% endif %}" href="?cat={{ v }}">{{ t }}</a>{% endfor %}
+  </div>
+  <div style="max-width:820px;margin-inline:auto;display:grid;gap:12px">
+    {% for f in faqs %}
+    <div class="card acc-item {% if forloop.first and not cat %}open{% endif %}">
+      <div class="acc-head">{{ f.question }}</div>
+      <div class="acc-body"><p style="padding-top:4px">{{ f.answer }}</p>
+      <span class="badge b-rare" style="margin-top:10px">{{ f.get_category_display }}</span></div>
+    </div>
+    {% empty %}<p style="color:var(--muted);text-align:center">سوالی در این دسته ثبت نشده.</p>{% endfor %}
+  </div>
+  <div class="card support-banner" style="margin-top:40px">
+    <div class="sup-ico"><svg class="ic ic-cyan"><use href="#i-send"/></svg></div>
+    <div style="flex:1"><h3>جوابت رو پیدا نکردی؟</h3><p>پشتیبانی ۲۴/۷ تلگرام — میانگین پاسخ زیر ۵ دقیقه</p></div>
+    <a class="btn btn-primary" href="{{ TELEGRAM_URL }}" target="_blank" rel="noopener">پیام در تلگرام</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}{% block content %}
+<section class="hero container"><div class="hero-grid">
+  <div>
+    <span class="eyebrow">آنلاین — ۱۲۴ کاربر فعال</span>
+    <h1 class="hero-title">مارکت آیتم‌های بازی<br><span class="grad">سریع، امن، نئونی</span></h1>
+    <p class="hero-sub">خرید و فروش آیتم‌های Warframe ،Dota 2 و Albion Online + بوست حرفه‌ای اکانت با تحویل آنی و اسکرو امن.</p>
+    <form class="search" method="get" action="{% url 'market' %}"><input name="q" placeholder="جستجوی آیتم، بازی یا اکانت..."><button class="btn btn-primary sm">جستجو</button></form>
+    <div class="hero-cta"><a href="{% url 'market' %}" class="btn btn-primary">🛒 خرید آیتم</a><a href="{% url 'trade' %}" class="btn btn-neon">💰 فروش اکانت</a></div>
+    <div class="stats">
+      <div class="stat"><b>+۱۲٬۵۰۰</b><span>کاربر فعال</span></div>
+      <div class="stat"><b>+۴۸٬۰۰۰</b><span>سفارش تکمیل‌شده</span></div>
+      <div class="stat"><b>۹۹٫۸٪</b><span>رضایت مشتری</span></div>
+      <div class="stat"><b>۲۴/۷</b><span>پشتیبانی</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="ring"></div><div class="ring-core">🎮</div>
+    <div class="float-card f1">🗡️ شمشیر آذرخش <b>$۲۴٫۹۹</b></div>
+    <div class="float-card f2">🥇 ← 💎 بوست موفق ✅</div>
+    <div class="float-card f3">⭐ <b>۴٫۹</b> از ۲٬۳۰۰ نظر</div>
+  </div>
+</div></section>
+
+<section class="section container reveal">
+  <div class="sec-head"><div><h2 class="sec-title">بازی‌های <i>محبوب</i></h2></div><a href="{% url 'market' %}" class="btn btn-glass sm">مشاهده همه ←</a></div>
+  <div class="games-grid">
+    {% for g in games %}
+    <a href="{% url 'market' %}?game={{ g.slug }}" class="card game-card" style="--edge:{{ g.color }}">
+      <div class="g-art">{{ g.icon }}</div>
+      <div class="g-body"><h3>{{ g.name }}</h3><p>{{ g.tagline }}</p>
+      <div class="g-meta"><span>{{ g.items.count }}+ آیتم</span><span style="color:var(--cyan)">ورود ←</span></div></div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section container reveal">
+  <div class="sec-head"><div><h2 class="sec-title">آیتم‌های <i>ویژه</i></h2></div></div>
+  <div class="items-grid">{% for item in featured %}{% include 'includes/item.html' %}{% endfor %}</div>
+</section>
+
+<section class="section container reveal">
+  <div class="sec-head"><div><h2 class="sec-title">چطور <i>کار می‌کنه</i>؟</h2></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num">🔍</div><h4>انتخاب آیتم</h4><p>جستجو کن و فیلتر بذار</p></div>
+    <div class="step"><div class="step-num">💳</div><h4>پرداخت امن</h4><p>پول وارد اسکرو می‌شه</p></div>
+    <div class="step"><div class="step-num">📦</div><h4>تحویل آنی</h4><p>کمتر از ۵ دقیقه</p></div>
+    <div class="step"><div class="step-num">⭐</div><h4>تأیید و نظر</h4><p>پول به فروشنده می‌رسه</p></div>
+  </div>
+</section>
+
+<section class="section container reveal">
+  <div class="sec-head"><div><h2 class="sec-title">سوالات <i>پرتکرار</i></h2><p class="sec-sub">جواب سریع، بدون معطلی</p></div><a href="{% url 'faq' %}" class="btn btn-glass sm">همه سوالات ←</a></div>
+  <div style="display:grid;gap:12px">
+    {% for f in home_faqs %}
+    <div class="card acc-item"><div class="acc-head">{{ f.question }}</div><div class="acc-body"><p style="padding-top:4px">{{ f.answer }}</p></div></div>
+    {% empty %}<p style="color:var(--muted)">سوالی ثبت نشده — از پنل ادمین اضافه کن.</p>{% endfor %}
+  </div>
+</section>
+
+<section class="container reveal" style="padding-bottom:60px">
+  <div class="card support-banner">
+    <div class="sup-ico">✈️</div>
+    <div style="flex:1"><h3>پشتیبانی ۲۴/۷ در تلگرام</h3>
+    <p>هر ساعت از شبانه‌روز تیم نئوگیم آنلاینه — میانگین زمان پاسخ: <b style="color:var(--cyan)">زیر ۵ دقیقه</b></p></div>
+    <a class="btn btn-primary" href="{{ TELEGRAM_URL }}" target="_blank" rel="noopener">گفتگو در تلگرام</a>
+  </div>
+</section>
+
+<section class="container reveal"><div class="cta-banner">
+  <h2>آماده‌ای شروع کنی؟ ⚡</h2>
+  <p>همین حالا ثبت‌نام کن و <b style="color:var(--cyan)">۱۰٪ تخفیف</b> اولین سفارش رو بگیر</p>
+  <a href="{% url 'register' %}" class="btn btn-primary">ثبت‌نام رایگان</a>
+</div></section>
+{% endblock %}

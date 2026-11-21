@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورود | نئوگیم</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span class="grid-floor"></span><span class="noise"></span></div>
+
+<div class="auth">
+  <div class="auth-side">
+    <div class="big-logo">⬡</div>
+    <blockquote>«به جامعه‌ی +۱۲٬۵۰ گیمر نئوگیم خوش اومدی — جایی که آیتم، بوست و ترید، سریع و امنه.»</blockquote>
+  </div>
+
+  <div class="auth-form">
+    <div class="card auth-card" data-tabs>
+      <div class="tabs-bar" style="justify-content:center;border:0;margin-bottom:10px">
+        <button class="tab-btn active" data-tab="f-login">ورود</button>
+        <button class="tab-btn" data-tab="f-register">ثبت‌نام</button>
+      </div>
+
+      <form class="tab-pane active" id="f-login" data-fake="ورود موفق — در حال انتقال... 🎮" data-redirect="dashboard.html">
+        <p class="sub">خوش برگشتی! وارد حسابت شو.</p>
+        <div class="field"><span class="f-icon">📧</span><input type="email" placeholder="ایمیل یا نام کاربری" required></div>
+        <div class="field"><span class="f-icon">🔒</span><input type="password" placeholder="رمز عبور" required></div>
+        <div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:18px">
+          <label class="f-check" style="margin:0"><input type="checkbox"> مرا به خاطر بسپار</label>
+          <a href="#" data-toast="لینک بازیابی ارسال شد 📧" style="color:var(--cyan)">فراموشی رمز؟</a>
+        </div>
+        <button class="btn btn-primary" style="width:100%">ورود به حساب</button>
+        <div class="alt">
+          <button type="button" class="btn btn-glass sm" data-toast="ورود با گوگل...">🔵 گوگل</button>
+          <button type="button" class="btn btn-glass sm" data-toast="ورود با دیسکورد...">💜 دیسکورد</button>
+        </div>
+      </form>
+
+      <form class="tab-pane" id="f-register" data-fake="ثبت‌نام موفق — خوش اومدی! 🎉" data-redirect="dashboard.html">
+        <p class="sub">حسابت رو بساز و ۱۰٪ تخفیف اولین خرید رو بگیر.</p>
+        <div class="field"><span class="f-icon">👤</span><input placeholder="نام کاربری" required></div>
+        <div class="field"><span class="f-icon">📧</span><input type="email" placeholder="ایمیل" required></div>
+        <div class="field"><span class="f-icon">🔒</span><input type="password" placeholder="رمز عبور" required></div>
+        <div class="field"><span class="f-icon">🔒</span><input type="password" placeholder="تکرار رمز عبور" required></div>
+        <button class="btn btn-primary" style="width:100%;margin-top:6px">ایجاد حساب</button>
+        <div class="alt">
+          <button type="button" class="btn btn-glass sm" data-toast="ثبت‌نام با گوگل...">🔵 گوگل</button>
+          <button type="button" class="btn btn-glass sm" data-toast="ثبت‌نام با دیسکورد...">💜 دیسکورد</button>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--dim);font-size:.8rem;margin-top:20px">با ورود، <a href="#" style="color:var(--cyan)">قوانین نئوگیم</a> رو می‌پذیری.</p>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

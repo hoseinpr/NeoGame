@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}تکمیل سفارش | نئوگیم{% endblock %}
+{% block content %}
+<section class="page-head container">
+  <div class="crumbs"><a href="{% url 'home' %}">خانه</a> / <a href="{% url 'cart' %}">سبد</a> / <span>تکمیل سفارش</span></div>
+  <h1 class="sec-title" style="font-size:2.2rem">اطلاعات <i>تحویل</i></h1>
+  <p class="sec-sub">آیدی بازی و زمان ترید رو وارد کن تا ادمین در اون ساعت آنلاین باشه</p>
+</section>
+
+<div class="container boost-grid" style="padding-bottom:80px">
+  <form method="post" class="card calc">{% csrf_token %}
+    <h3 style="margin-bottom:18px">📝 اطلاعات ترید</h3>
+
+    <label><svg class="ic ic-violet"><use href="#i-gamepad"/></svg> آیدی درون بازی (دقیق وارد کن)</label>
+    <div class="field" style="margin:0">
+      <span class="f-icon"><svg class="ic ic-violet"><use href="#i-user"/></svg></span>
+      <input name="game_username" placeholder="مثلاً: NeoGamer#1234" required>
+    </div>
+
+    <label><svg class="ic ic-violet"><use href="#i-clock"/></svg> زمان ترید (ادمین توی این ساعت آنلاین می‌شه)</label>
+    <select name="delivery_slot" required>
+      <option value="">یک بازه‌ی زمانی انتخاب کن</option>
+      {% for val, label in slots %}
+        <option value="{{ val }}">{{ label }}</option>
+      {% endfor %}
+    </select>
+
+    <label><svg class="ic ic-pink"><use href="#i-pin"/></svg> توضیحات اضافی (اختیاری)</label>
+    <div class="field" style="margin:0">
+      <textarea name="delivery_notes" placeholder="مثلاً: در سرور اروپا بازی می‌کنم، یا: فقط از طریق Trade Window ترید می‌کنم..."></textarea>
+    </div>
+
+    <div style="padding:18px;border-radius:14px;background:rgba(34,211,238,.08);border:1px dashed var(--cyan);margin-top:20px">
+      <div style="color:var(--muted);font-size:.88rem">
+        <svg class="ic ic-green"><use href="#i-check"/></svg> ادمین در بازه‌ی انتخابی شما آنلاین می‌شه<br>
+        <svg class="ic ic-green"><use href="#i-check"/></svg> ترید فقط از طریق سیستم رسمی بازی انجام می‌شه<br>
+        <svg class="ic ic-green"><use href="#i-check"/></svg> تا قبل از تحویل، پول شما در اسکرو امانت است<br>
+        <svg class="ic ic-green"><use href="#i-check"/></svg> در صورت عدم تحویل، ۱۰۰٪ بازگشت وجه
+      </div>
+    </div>
+
+    <button class="btn btn-primary" style="width:100%;margin-top:20px"><svg class="ic ic-green"><use href="#i-wallet"/></svg> تأیید و پرداخت</button>
+  </form>
+
+  <div class="card summary">
+    <small style="color:var(--muted)">خلاصه سفارش</small>
+    <div class="big">${{ total|floatformat:2 }}</div>
+
+    <div style="margin-top:20px;text-align:right">
+      {% for row in rows %}
+      <div class="sum-row">
+        <span>{{ row.item.icon }} {{ row.item.name }} × {{ row.qty }}</span>
+        <span style="color:var(--cyan)">${{ row.sum|floatformat:2 }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:20px;padding:14px;border-radius:12px;background:rgba(0,0,0,.3);border:1px solid var(--stroke)">
+      <small style="color:var(--muted);display:block;margin-bottom:8px"><svg class="ic ic-green"><use href="#i-lock"/></svg> پرداخت امن</small>
+      <p style="color:var(--muted);font-size:.82rem">پول تا زمان تأیید تحویل توسط شما، نزد نئوگیم امانت می‌مونه.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
